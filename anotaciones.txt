@@ -1,0 +1,5 @@
+1) npm init para configurar el servidor con nodejs.
+2) npm i express (entorno de trabajo para aplicaciones web para el programario Node.js, de código abierto y con licencia MIT)
+3) npm i -D nodemon 
+4) npm i mongoose 
+5) npm i dotenv

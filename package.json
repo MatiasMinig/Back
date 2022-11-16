@@ -1,0 +1,29 @@
+{
+  "name": "infotravel-back",
+  "version": "1.0.0",
+  "description": "Creamos el servido de Nodejs Para infotravel",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infotravelifts16/Back.git"
+  },
+  "author": "Matias Minig Oscar Bejar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/infotravelifts16/Back/issues"
+  },
+  "homepage": "https://github.com/infotravelifts16/Back#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
