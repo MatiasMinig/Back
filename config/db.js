@@ -15,4 +15,4 @@ const conectarDB = async () => {
   }
 };
 
-export default conectarDB;
+export default conectarDB; 
