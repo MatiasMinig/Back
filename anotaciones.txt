@@ -5,3 +5,7 @@
 5) npm i dotenv
 6) npm i bcrypt  
 7) npm i jsonwebtoken 
+8) npm i cors (es para la conectar front con back)
+9) https://nodemailer.com/about/ para enviar emails para confirmar cuentas 
+npm install nodemailer
+10) https://mailtrap.io/signin 
