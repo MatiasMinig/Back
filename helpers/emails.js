@@ -1,28 +1,58 @@
-import nodemailer from 'nodemailer';
+import nodemailer from "nodemailer";
 
 export const emailRegistro = async (datos) => {
-    const { email, nombre, token } = datos;
+  const { email, nombre, token } = datos;
 
-    const transport = nodemailer.createTransport({
-        host: "smtp.mailtrap.io",
-        port: 2525,
-        auth: {
-          user: "21f9516b96bce2",
-          pass: "a824257c8e691d"
-        }
-      });
+  const transport = nodemailer.createTransport({
+    host: process.env.EMAIL_HOST,
+    port: process.env.EMAIL_PORT,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
 
-      // Información del email
-      const info = await transport.sendMail({
-        from: '"Infotravel - Administrador" <infotravelifts16@gmail.com>',
-        to: email,
-        subject: "Infotravel- Confirma tu cuenta",
-        text: "Comprueba tu cuenta en Infotravel",
-        html: ` <p>Hola: ${nombre} comprueba tu cuenta en Infotravel</p>
+  // Información del email
+  const info = await transport.sendMail({
+    from: '"Infotravel - Administrador" <infotravelifts16@gmail.com>',
+    to: email,
+    subject: "Infotravel- Confirma tu cuenta",
+    text: "Comprueba tu cuenta en Infotravel",
+    html: ` <p>Hola: ${nombre} comprueba tu cuenta en Infotravel</p>
         <p>Tu cuenta ya esta casi lista, solo deber comprobarla en el siguiente enlace:
         <a href="${process.env.FRONT_URL}/confirmar/${token}">Comprobar Cuenta</a></p>
         <p>Si tu no creaste esta cuenta, puedes ignorar el mensaje</p>
         
         `,
-      })
+  });
+};
+
+export const emailOlvidePassword = async (datos) => {
+  const { email, nombre, token } = datos;
+
+  const transport = nodemailer.createTransport({
+      host: process.env.EMAIL_HOST,
+      port: process.env.EMAIL_PORT,
+      auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
+
+  // Información del email
+  const info = await transport.sendMail({
+    from: '"Infotravel - Administrador" <infotravelifts16@gmail.com>',
+    to: email,
+    subject: "Infotravel- Reestablece tu Password",
+    text: "Reestablece tu Password",
+    html: ` <p>Hola: ${nombre} has solicitado reestablecer tu password</p>
+
+      <p>Sigue el siguiente enlace para generar un nuevo password:
+
+      <a href="${process.env.FRONT_URL}/olvide-password/${token}">Reestablecer Password</a></p>
+
+      <p>Si tu no solicitaste  este email, puedes ignorar el mensaje</p>
+      
+      `,
+  });
 };
